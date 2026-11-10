@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+redis
+httpx
+python-dotenv
+prometheus-client
+numpy
+matplotlib
+locust

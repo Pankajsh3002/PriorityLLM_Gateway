@@ -1,0 +1,9 @@
+services:
+  redis:
+    image: redis:7-alpine
+    # volatile-lru: under memory pressure Redis may evict keys that have a TTL
+    # (cache, jobs, results) but never the queue itself, which has no TTL.
+    command: ["redis-server", "--maxmemory", "128mb",
+              "--maxmemory-policy", "volatile-lru", "--save", ""]
+    ports: ["6379:6379"]
+    mem_limit: 160m
